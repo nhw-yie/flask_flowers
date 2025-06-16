@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhận diện hoa 🌸</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f9e1e1, #e1f9e1); /* Gradient nền với màu hồng và xanh nhạt */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d6336c; /* Màu hồng đậm */
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .subtitle {
+      color: #555;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .form-box {
+      background-color: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    input[type="file"] {
+      font-size: 1em;
+      color: #333;
+      border: 2px dashed #d6336c;
+      padding: 15px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 350px;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+      border-color: #ff6f91;
+    }
+
+    input[type="submit"] {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 12px 40px;
+      font-size: 1.1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff6f91;
+      transform: scale(1.05);
+    }
+
+    .result-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2d6a4f; /* Màu xanh lá đậm */
+      font-size: 1.8em;
+      margin: 0 0 15px 0;
+    }
+
+    img {
+      max-width: 100%;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌼 Nhận diện hoa</h1>
+    <p class="subtitle">Tải ảnh hoa lên và khám phá loài hoa của bạn! 🌸</p>
+
+    <div class="form-box">
+      <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <input type="submit" value="Nhận diện">
+      </form>
+    </div>
+
+    {% if prediction %}
+      <div class="result-box">
+        <h2>🌸 Kết quả: {{ prediction }}</h2>
+        <img src="{{ image_path }}" alt="Uploaded Flower">
+      </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Ứng dụng nhận diện hoa 🌷</p>
+  </footer>
+</body>
+</html>
