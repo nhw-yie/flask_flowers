@@ -14,9 +14,13 @@ Người dùng có thể tải lên hình ảnh hoa, và ứng dụng sẽ dự 
 Ứng dụng sử dụng mô hình CNN được huấn luyện bằng TensorFlow và lưu trữ trên Google Drive. Mô hình sẽ được **tự động tải về** nếu chưa có.
 
 ## RUN
+```bash
 git clone https://github.com/nhw-yie/flask_flowers.git
 cd flower-flask-cnn
 pip install -r requirements.txt
 python app.py
+```
+## Link Colab model
+https://colab.research.google.com/drive/15Sm39eUFnYnahC1areerRiHOKKjl4fyq
 
 
